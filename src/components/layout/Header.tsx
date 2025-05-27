@@ -1,32 +1,31 @@
 "use client";
 
-import { Search, Menu, Mic, Video, Bell } from "lucide-react";
+import { Search, Mic, Video, Bell } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Avatar } from "@/components/ui/Avatar";
+import Image from "next/image";
+import Link from "next/link";
 
-interface HeaderProps {
-  onMenuClick?: () => void;
-}
-
-export function Header({ onMenuClick }: HeaderProps) {
+export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-2">
       <div className="flex items-center justify-between">
         {/* Left section */}
         <div className="flex items-center space-x-4">
-          <Button variant="icon" onClick={onMenuClick} className="lg:block">
+          {/* <Button variant="icon" onClick={onMenuClick} className="lg:block">
             <Menu className="w-5 h-5" />
-          </Button>
-          <div className="flex items-center space-x-1">
-            <div className="w-8 h-8 bg-red-600 rounded-sm flex items-center justify-center">
-              <div className="w-5 h-4 bg-white rounded-sm relative">
-                <div className="absolute inset-1 bg-red-600 rounded-sm"></div>
-              </div>
+          </Button> */}
+          <Link href={"/"}>
+            <div className="flex items-center space-x-1 relative w-20 xl:w-72 h-full">
+              <Image
+                width={250}
+                height={220}
+                src="https://1000logos.net/wp-content/uploads/2017/05/Youtube-Logo.png"
+                alt="YouTube Logo"
+                className="h-16 xl:h-16 md:h-14 left-0 absolute sm:h-6 object-contain"
+              />
             </div>
-            <span className="text-xl font-semibold hidden sm:block">
-              YouTube
-            </span>
-          </div>
+          </Link>
         </div>
 
         {/* Center section - Search */}
