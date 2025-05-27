@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Video } from "../../types/video";
-import { formatDistanceToNow } from "date-fns";
 import Image from "next/image";
 
 interface RelatedVideoCardProps {
