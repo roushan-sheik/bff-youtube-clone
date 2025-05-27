@@ -1,20 +1,24 @@
 "use client";
 
-import { Search, Mic, Video, Bell } from "lucide-react";
+import { Search, Mic, Video, Bell, Menu } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Avatar } from "@/components/ui/Avatar";
 import Image from "next/image";
 import Link from "next/link";
 
-export function Header() {
+interface HeaderProps {
+  onMenuClick: () => void;
+}
+
+export function Header({ onMenuClick }: HeaderProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-2">
       <div className="flex items-center justify-between">
         {/* Left section */}
         <div className="flex items-center space-x-4">
-          {/* <Button variant="icon" onClick={onMenuClick} className="lg:block">
+          <Button variant="icon" onClick={onMenuClick} className="lg:hidden ">
             <Menu className="w-5 h-5" />
-          </Button> */}
+          </Button>
           <Link href={"/"}>
             <div className="flex items-center space-x-1 relative w-20 xl:w-72 h-full">
               <Image
