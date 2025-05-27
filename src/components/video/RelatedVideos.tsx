@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { Video } from "../../types/video";
-import Avatar from "../ui/Avatar";
 import { formatDistanceToNow } from "date-fns";
+import Image from "next/image";
 
 interface RelatedVideoCardProps {
   video: Video;
@@ -21,9 +21,11 @@ function RelatedVideoCard({ video }: RelatedVideoCardProps) {
 
   return (
     <Link href={`/watch?v=${video.id}`}>
-      <div className="flex space-x-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+      <div className="flex space-x-3 p-2 rounded-lg hover:bg-gray-100  transition-colors cursor-pointer">
         <div className="relative flex-shrink-0">
-          <img
+          <Image
+            width={200}
+            height={100}
             src={video.thumbnail}
             alt={video.title}
             className="w-40 h-24 object-cover rounded-lg"
@@ -34,14 +36,12 @@ function RelatedVideoCard({ video }: RelatedVideoCardProps) {
         </div>
 
         <div className="flex-1 min-w-0 space-y-1">
-          <h4 className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2 leading-5">
+          <h4 className="text-sm font-medium text-gray-900  leading-5">
             {video.title}
           </h4>
 
           <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-600 dark:text-gray-400">
-              {video.channel}
-            </span>
+            <span className="text-sm text-gray-600 ">{video.channel}</span>
             {video.verified && (
               <div className="w-3 h-3 bg-gray-600 rounded-full flex items-center justify-center">
                 <span className="text-white text-xs">✓</span>
@@ -72,7 +72,7 @@ export default function RelatedVideos({
   if (isLoading) {
     return (
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold text-gray-900  ">
           Related Videos
         </h3>
         <div className="space-y-3">

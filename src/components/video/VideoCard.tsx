@@ -47,12 +47,12 @@ export default function VideoCard({ video }: VideoCardProps) {
 
           {/* Video Details */}
           <div className="flex-1 min-w-0 space-y-1">
-            <h3 className="text-sm font-medium text-gray-900   group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <h3 className="text-sm font-medium text-gray-900   group-hover:text-blue-600   transition-colors">
               {video.title}
             </h3>
 
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-600  hover:text-gray-900 dark:hover:text-white transition-colors">
+              <span className="text-sm text-gray-600  hover:text-gray-900   transition-colors">
                 {video.channel}
               </span>
               {video.verified && (

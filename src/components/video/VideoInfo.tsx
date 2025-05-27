@@ -77,13 +77,13 @@ export default function VideoInfo({ videoData, isLoading }: VideoInfoProps) {
   return (
     <div className="space-y-4">
       {/* Video Title */}
-      <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
+      <h1 className="text-xl font-semibold text-gray-900  ">
         {videoData.title}
       </h1>
 
       {/* Video Stats and Actions */}
       <div className="flex items-center justify-between flex-wrap gap-4">
-        <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex items-center space-x-2 text-sm text-gray-600 ">
           <span>{formatNumber(videoData.views)} views</span>
           <span>•</span>
           <span>{videoData.uploaded}</span>
@@ -91,11 +91,11 @@ export default function VideoInfo({ videoData, isLoading }: VideoInfoProps) {
 
         <div className="flex items-center space-x-2">
           {/* Like/Dislike */}
-          <div className="flex items-center bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+          <div className="flex items-center bg-gray-100  rounded-full overflow-hidden">
             <button
               onClick={handleLike}
-              className={`flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ${
-                isLiked ? "text-blue-600" : "text-gray-700 dark:text-gray-300"
+              className={`flex items-center space-x-2 px-4 py-2 hover:bg-gray-200   transition-colors ${
+                isLiked ? "text-blue-600" : "text-gray-700  "
               }`}
             >
               <ThumbsUp className="w-5 h-5" />
@@ -103,13 +103,11 @@ export default function VideoInfo({ videoData, isLoading }: VideoInfoProps) {
                 {formatNumber(videoData.likes + (isLiked ? 1 : 0))}
               </span>
             </button>
-            <div className="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
+            <div className="w-px h-6 bg-gray-300  "></div>
             <button
               onClick={handleDislike}
-              className={`flex items-center space-x-2 px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors ${
-                isDisliked
-                  ? "text-blue-600"
-                  : "text-gray-700 dark:text-gray-300"
+              className={`flex items-center space-x-2 px-4 py-2 hover:bg-gray-200  transition-colors ${
+                isDisliked ? "text-blue-600" : "text-gray-700 "
               }`}
             >
               <ThumbsDown className="w-5 h-5" />
@@ -152,10 +150,10 @@ export default function VideoInfo({ videoData, isLoading }: VideoInfoProps) {
             size="lg"
           />
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white">
+            <h3 className="font-semibold text-gray-900 ">
               {videoData.channel}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-sm text-gray-600  ">
               {formatNumber(videoData.subscribers)} subscribers
             </p>
           </div>
@@ -184,8 +182,8 @@ export default function VideoInfo({ videoData, isLoading }: VideoInfoProps) {
 
       {/* Description */}
       {videoData.description && (
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4">
-          <div className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
+        <div className="bg-gray-100   rounded-lg p-4">
+          <div className="text-sm text-gray-700   whitespace-pre-wrap">
             {showFullDescription
               ? videoData.description
               : truncateDescription(videoData.description, 200)}

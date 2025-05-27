@@ -31,15 +31,13 @@ function CommentItem({ comment, isReply = false }: CommentItemProps) {
         <Avatar src={comment.authorAvatar} alt={comment.author} size="sm" />
         <div className="flex-1 space-y-2">
           <div className="flex items-center space-x-2">
-            <span className="font-medium text-sm text-gray-900 dark:text-white">
+            <span className="font-medium text-sm text-gray-900 ">
               {comment.author}
             </span>
             <span className="text-xs text-gray-500">{comment.timestamp}</span>
           </div>
 
-          <p className="text-sm text-gray-700 dark:text-gray-300">
-            {comment.content}
-          </p>
+          <p className="text-sm text-gray-700  ">{comment.content}</p>
 
           <div className="flex items-center space-x-4">
             <button
@@ -83,7 +81,7 @@ function CommentItem({ comment, isReply = false }: CommentItemProps) {
                   value={replyText}
                   onChange={(e) => setReplyText(e.target.value)}
                   placeholder="Add a reply..."
-                  className="w-full p-2 border-b border-gray-300 dark:border-gray-600 bg-transparent resize-none focus:outline-none focus:border-blue-500 text-sm"
+                  className="w-full p-2 border-b border-gray-300   bg-transparent resize-none focus:outline-none focus:border-blue-500 text-sm"
                   rows={2}
                 />
                 <div className="flex space-x-2">
@@ -180,18 +178,16 @@ export default function CommentsSection({
     <div className="space-y-6">
       {/* Comments Header */}
       <div className="flex items-center space-x-8">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <h3 className="text-lg font-semibold text-gray-900 ">
           {commentsCount.toLocaleString()} Comments
         </h3>
 
         <div className="flex items-center space-x-2">
-          <span className="text-sm text-gray-600 dark:text-gray-400">
-            Sort by
-          </span>
+          <span className="text-sm text-gray-600  ">Sort by</span>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="text-sm font-medium text-gray-900 dark:text-white bg-transparent border-none focus:outline-none cursor-pointer"
+            className="text-sm font-medium text-gray-900   bg-transparent border-none focus:outline-none cursor-pointer"
           >
             <option value="top">Top comments</option>
             <option value="newest">Newest first</option>
@@ -211,7 +207,7 @@ export default function CommentsSection({
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
             placeholder="Add a comment..."
-            className="w-full p-2 border-b border-gray-300 dark:border-gray-600 bg-transparent resize-none focus:outline-none focus:border-blue-500"
+            className="w-full p-2 border-b border-gray-300  bg-transparent resize-none focus:outline-none focus:border-blue-500"
             rows={1}
             onFocus={(e) => (e.target.rows = 3)}
             onBlur={(e) => !commentText && (e.target.rows = 1)}
