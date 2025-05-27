@@ -79,7 +79,7 @@ export function Sidebar({ isOpen }: SidebarProps) {
       {/* Sidebar */}
       <aside
         className={cn(
-          "fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-white border-r border-gray-200 z-50 transform transition-transform duration-300 overflow-y-auto",
+          "fixed left-0 lg:top-16 top-12 h-[calc(100vh-64px)] w-64 bg-white border-r border-gray-200 z-50 transform transition-transform duration-300 overflow-y-auto",
           isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         )}
       >
