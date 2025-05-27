@@ -1,5 +1,8 @@
-import { Video, VideoData, ApiResponse } from "@/types/video";
-import { mockVideos, mockVideoData } from "@/lib/utils/mockData";
+import { Video, VideoData, Comment, ApiResponse } from "@/types/video";
+
+import { mockComments } from "../utils/mockComments";
+import { mockVideoData } from "../utils/mockVideoData";
+import { mockVideos } from "../utils/mockVideos";
 
 // API Base Configuration
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -71,6 +74,30 @@ class ApiClient {
       // Fallback to mock data on error
       console.warn("API call failed, using mock data:", error);
       return await this.mockRequest(mockVideoData);
+    }
+  }
+
+  async getVideoComments(videoId: string): Promise<ApiResponse<Comment[]>> {
+    try {
+      // In production, use: return await this.request<ApiResponse<Comment[]>>(`/getcomments?videoId=${videoId}`);
+      return await this.mockRequest(mockComments, 800);
+    } catch (error) {
+      // Fallback to mock data on error
+      console.warn("API call failed, using mock data:", error);
+      return await this.mockRequest(mockComments, 800);
+    }
+  }
+
+  async getRelatedVideos(videoId: string): Promise<ApiResponse<Video[]>> {
+    try {
+      // In production, use: return await this.request<ApiResponse<Video[]>>(`/getrelated?videoId=${videoId}`);
+      const related = mockVideos.slice(0, 10);
+      return await this.mockRequest(related, 600);
+    } catch (error) {
+      // Fallback to mock data on error
+      console.warn("API call failed, using mock data:", error);
+      const related = mockVideos.slice(0, 10);
+      return await this.mockRequest(related, 600);
     }
   }
 }
