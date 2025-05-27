@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Video } from "../../types/video";
 import { Avatar } from "../ui/Avatar";
+import Image from "next/image";
 
 interface VideoCardProps {
   video: Video;
@@ -23,7 +24,9 @@ export default function VideoCard({ video }: VideoCardProps) {
       <div className="space-y-3">
         {/* Thumbnail */}
         <div className="relative aspect-video bg-gray-200 rounded-lg overflow-hidden">
-          <img
+          <Image
+            width={300}
+            height={250}
             src={video.thumbnail}
             alt={video.title}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
@@ -44,12 +47,12 @@ export default function VideoCard({ video }: VideoCardProps) {
 
           {/* Video Details */}
           <div className="flex-1 min-w-0 space-y-1">
-            <h3 className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <h3 className="text-sm font-medium text-gray-900   group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               {video.title}
             </h3>
 
             <div className="flex items-center space-x-2">
-              <span className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              <span className="text-sm text-gray-600  hover:text-gray-900 dark:hover:text-white transition-colors">
                 {video.channel}
               </span>
               {video.verified && (
@@ -59,7 +62,7 @@ export default function VideoCard({ video }: VideoCardProps) {
               )}
             </div>
 
-            <div className="flex items-center space-x-1 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex items-center space-x-1 text-sm text-gray-500  ">
               <span>{formatViews(video.views)} views</span>
               <span>•</span>
               <span>{video.uploaded}</span>
