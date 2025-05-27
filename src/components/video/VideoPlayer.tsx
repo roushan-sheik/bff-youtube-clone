@@ -24,7 +24,7 @@ export default function VideoPlayer({ videoUrl, thumbnail }: VideoPlayerProps) {
   const [duration, setDuration] = useState(0);
   const [showControls, setShowControls] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const controlsTimeoutRef = useRef<NodeJS.Timeout>();
+  const controlsTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -92,7 +92,7 @@ export default function VideoPlayer({ videoUrl, thumbnail }: VideoPlayerProps) {
     if (controlsTimeoutRef.current) {
       clearTimeout(controlsTimeoutRef.current);
     }
-    controlsTimeoutRef.current = setTimeout(() => {
+    controlsTimeoutRef.current = window.setTimeout(() => {
       if (isPlaying) {
         setShowControls(false);
       }
