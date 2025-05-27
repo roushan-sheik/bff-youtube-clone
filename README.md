@@ -128,7 +128,7 @@ npm start
 Create a `.env.local` file for API configuration:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL=http://localhost:3000
 ```
 
 ### Mock Data
