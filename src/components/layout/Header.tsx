@@ -61,7 +61,11 @@ export function Header() {
           <Button variant="icon" className="hidden sm:flex">
             <Bell className="w-5 h-5" />
           </Button>
-          <Avatar src="/avatars/user.jpg" alt="User Avatar" size="md" />
+          <Avatar
+            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+            alt="User Avatar"
+            size="md"
+          />
         </div>
       </div>
     </header>
