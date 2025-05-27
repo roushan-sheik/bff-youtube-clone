@@ -116,7 +116,7 @@ export default function VideoPlayer({
 
   return (
     <div
-      className="relative bg-black rounded-lg overflow-hidden group aspect-video w-full"
+      className="relative bg-black rounded-xl overflow-hidden group aspect-video w-full"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => isPlaying && setShowControls(false)}
     >

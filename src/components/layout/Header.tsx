@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface HeaderProps {
-  onMenuClick: () => void;
+  onMenuClick?: () => void;
 }
 
 export function Header({ onMenuClick }: HeaderProps) {
