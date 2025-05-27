@@ -9,7 +9,10 @@ import { useVideos } from "@/lib/hooks/useVideos";
 export default function HomePage() {
   const { data: videosResponse, isLoading, error, refetch } = useVideos();
 
-  const videos = videosResponse || [];
+  // Extract the actual videos array from the API response
+  const videos = Array.isArray(videosResponse)
+    ? videosResponse
+    : videosResponse?.data || [];
 
   return (
     <Layout>
