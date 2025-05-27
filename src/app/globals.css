@@ -11,7 +11,9 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
-
+button {
+  cursor: pointer;
+}
 @layer components {
   .line-clamp-2 {
     display: -webkit-box;

@@ -42,7 +42,7 @@ function CommentItem({ comment, isReply = false }: CommentItemProps) {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => setIsLiked(!isLiked)}
-              className={`flex items-center space-x-1 text-xs ${
+              className={`flex items-center space-x-1 text-xs cursor-pointer ${
                 isLiked ? "text-blue-600" : "text-gray-500 hover:text-gray-700"
               }`}
             >
@@ -50,20 +50,20 @@ function CommentItem({ comment, isReply = false }: CommentItemProps) {
               <span>{comment.likes + (isLiked ? 1 : 0)}</span>
             </button>
 
-            <button className="flex items-center space-x-1 text-xs text-gray-500 hover:text-gray-700">
+            <button className="flex items-center space-x-1 cursor-pointer text-xs text-gray-500 hover:text-gray-700">
               <ThumbsDown className="w-4 h-4" />
             </button>
 
             {!isReply && (
               <button
                 onClick={() => setShowReplyInput(!showReplyInput)}
-                className="text-xs text-gray-500 hover:text-gray-700 font-medium"
+                className="text-xs text-gray-500 cursor-pointer hover:text-gray-700 font-medium"
               >
                 REPLY
               </button>
             )}
 
-            <button className="text-xs text-gray-500 hover:text-gray-700">
+            <button className="text-xs text-gray-500 cursor-pointer hover:text-gray-700">
               <MoreVertical className="w-4 h-4" />
             </button>
           </div>
@@ -111,9 +111,9 @@ function CommentItem({ comment, isReply = false }: CommentItemProps) {
         <div className="ml-12">
           <button
             onClick={() => setShowReplies(!showReplies)}
-            className="flex items-center space-x-2 text-sm text-blue-600 hover:text-blue-700 font-medium mb-3"
+            className="flex items-center space-x-2 text-sm cursor-pointer text-blue-600 hover:text-blue-700 font-medium mb-3"
           >
-            <Reply className="w-4 h-4" />
+            <Reply className="w-4 h-4 cursor-pointer" />
             <span>
               {showReplies ? "Hide" : "Show"} {comment.replies.length} replies
             </span>
