@@ -13,6 +13,10 @@ A pixel-perfect YouTube homepage clone built with Next.js, TypeScript, Tailwind 
 - **Hover Effects**: Interactive video cards with YouTube-like hover animations
 - **Accessibility**: Proper ARIA labels, keyboard navigation, and semantic HTML
 
+## Live URL
+
+🔗 [https://bff-youtube-clone-gyn4-tau.vercel.app](https://bff-youtube-clone-gyn4-tau.vercel.app)
+
 ## 🛠️ Tech Stack
 
 - **Framework**: Next.js 14 (App Router)
