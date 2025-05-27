@@ -17,6 +17,19 @@ export interface VideoData {
   uploaded: string;
   channel: string;
   subscribers: number;
+  description?: string;
+  dislikes?: number;
+  videoUrl?: string;
+}
+
+export interface Comment {
+  id: string;
+  author: string;
+  authorAvatar?: string;
+  content: string;
+  likes: number;
+  timestamp: string;
+  replies?: Comment[];
 }
 
 export interface ApiResponse<T> {

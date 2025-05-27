@@ -1,11 +1,13 @@
 "use client";
 
-import { Search, Menu, Mic, Video, Bell } from "lucide-react";
+import { Search, Mic, Video, Bell, Menu } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Avatar } from "@/components/ui/Avatar";
+import Image from "next/image";
+import Link from "next/link";
 
 interface HeaderProps {
-  onMenuClick: () => void;
+  onMenuClick?: () => void;
 }
 
 export function Header({ onMenuClick }: HeaderProps) {
@@ -14,19 +16,20 @@ export function Header({ onMenuClick }: HeaderProps) {
       <div className="flex items-center justify-between">
         {/* Left section */}
         <div className="flex items-center space-x-4">
-          <Button variant="icon" onClick={onMenuClick} className="lg:block">
+          <Button variant="icon" onClick={onMenuClick} className="lg:hidden ">
             <Menu className="w-5 h-5" />
           </Button>
-          <div className="flex items-center space-x-1">
-            <div className="w-8 h-8 bg-red-600 rounded-sm flex items-center justify-center">
-              <div className="w-5 h-4 bg-white rounded-sm relative">
-                <div className="absolute inset-1 bg-red-600 rounded-sm"></div>
-              </div>
+          <Link href={"/"}>
+            <div className="flex items-center space-x-1 relative w-20 xl:w-72 h-full">
+              <Image
+                width={250}
+                height={220}
+                src="https://1000logos.net/wp-content/uploads/2017/05/Youtube-Logo.png"
+                alt="YouTube Logo"
+                className="h-16 xl:h-16 md:h-14 left-0 absolute sm:h-6 object-contain"
+              />
             </div>
-            <span className="text-xl font-semibold hidden sm:block">
-              YouTube
-            </span>
-          </div>
+          </Link>
         </div>
 
         {/* Center section - Search */}
@@ -39,7 +42,10 @@ export function Header({ onMenuClick }: HeaderProps) {
                 className="w-full px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:border-blue-500"
               />
             </div>
-            <Button className="px-6 py-2 bg-gray-50 border border-l-0 border-gray-300 rounded-r-full hover:bg-gray-100">
+            <Button
+              variant="none"
+              className="px-6 py-2 bg-gray-50 border border-l-0 border-gray-300 rounded-r-full hover:bg-gray-100"
+            >
               <Search className="w-5 h-5 text-gray-600" />
             </Button>
           </div>
@@ -59,7 +65,11 @@ export function Header({ onMenuClick }: HeaderProps) {
           <Button variant="icon" className="hidden sm:flex">
             <Bell className="w-5 h-5" />
           </Button>
-          <Avatar src="/avatars/user.jpg" alt="User Avatar" size="md" />
+          <Avatar
+            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+            alt="User Avatar"
+            size="md"
+          />
         </div>
       </div>
     </header>

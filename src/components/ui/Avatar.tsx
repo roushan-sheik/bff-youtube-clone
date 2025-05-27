@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils/formatters";
+import Image from "next/image";
 
 interface AvatarProps {
   src?: string;
@@ -19,13 +20,19 @@ export function Avatar({ src, alt, size = "md", className }: AvatarProps) {
   return (
     <div
       className={cn(
-        "rounded-full overflow-hidden bg-gray-300 flex items-center justify-center",
+        "rounded-full cursor-pointer overflow-hidden bg-gray-300 flex items-center justify-center",
         sizes[size],
         className
       )}
     >
       {src ? (
-        <img src={src} alt={alt} className="w-full h-full object-cover" />
+        <Image
+          width={100}
+          height={100}
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+        />
       ) : (
         <span className="text-gray-600 font-medium text-sm">
           {fallbackInitial}

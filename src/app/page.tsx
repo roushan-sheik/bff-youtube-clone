@@ -30,7 +30,7 @@ export default function HomePage() {
           ].map((category) => (
             <button
               key={category}
-              className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              className={`flex-shrink-0 px-3 py-1.5 cursor-pointer rounded-lg text-sm font-medium transition-colors ${
                 category === "All"
                   ? "bg-gray-900 text-white"
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200"

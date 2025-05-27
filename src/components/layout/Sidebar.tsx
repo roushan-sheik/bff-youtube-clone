@@ -35,7 +35,7 @@ function SidebarItem({ icon, label, active = false }: SidebarItemProps) {
   return (
     <button
       className={cn(
-        "flex items-center space-x-6 w-full px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors text-left",
+        "flex items-center space-x-6 cursor-pointer w-full px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors text-left",
         active && "bg-gray-100 font-medium"
       )}
     >
