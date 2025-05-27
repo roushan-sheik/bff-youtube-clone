@@ -49,9 +49,9 @@ function WatchPageContent() {
     );
   }
 
-  const videoData = videoResponse?.data;
+  const videoData = videoResponse;
   const comments = commentsResponse?.data || [];
-  const relatedVideos = relatedResponse?.data || [];
+  const relatedVideos = relatedResponse || [];
 
   // Mock video for player since we don't have real video URLs
   const mockVideo = {

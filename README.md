@@ -1,6 +1,22 @@
-# YouTube Clone - Frontend Application
+# YouTube Clone - Application
 
 A pixel-perfect YouTube homepage clone built with Next.js, TypeScript, Tailwind CSS, and React Query.
+
+# 📸 Home Page Screenshot
+
+![Homepage Screenshot](public/screenshot/home-page.png)
+
+# 📸 Video Details Page Screenshot
+
+![Homepage Screenshot](public/screenshot/video-details.png)
+
+# 📸 Responsive for Tablet
+
+![Homepage Screenshot](public/screenshot/tablet.png)
+
+# 📸 Responsive for small Devices
+
+![Homepage Screenshot](public/screenshot/mobile.png)
 
 ## 🚀 Features
 
@@ -17,9 +33,9 @@ A pixel-perfect YouTube homepage clone built with Next.js, TypeScript, Tailwind 
 
 🔗 [https://bff-youtube-clone-gyn4-tau.vercel.app](https://bff-youtube-clone-gyn4-tau.vercel.app)
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Data Fetching**: TanStack React Query
@@ -30,37 +46,68 @@ A pixel-perfect YouTube homepage clone built with Next.js, TypeScript, Tailwind 
 
 ```
 youtube-clone/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root layout with providers
-│   ├── page.tsx           # Homepage
-│   └── globals.css        # Global styles
-├── components/            # Reusable components
-│   ├── ui/               # Base UI components
-│   │   ├── Button.tsx
-│   │   └── Avatar.tsx
-│   ├── layout/           # Layout components
-│   │   ├── Header.tsx
-│   │   ├── Sidebar.tsx
-│   │   └── Layout.tsx
-│   ├── video/            # Video-related components
-│   │   ├── VideoCard.tsx
-│   │   └── VideoGrid.tsx
-│   └── common/           # Common components
-│       ├── LoadingSpinner.tsx
-│       └── ErrorMessage.tsx
-├── lib/                  # Business logic & utilities
-│   ├── api/             # API client & endpoints
-│   │   ├── client.ts
-│   │   └── types.ts
-│   ├── hooks/           # Custom React hooks
-│   │   └── useVideos.ts
-│   ├── utils/           # Utility functions
-│   │   ├── formatters.ts
-│   │   └── mockData.ts
-│   └── providers/       # React providers
-│       └── QueryProvider.tsx
-└── types/               # TypeScript type definitions
-    └── video.ts
+├── public/                      # Static public assets
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── vercel.svg
+│   ├── window.svg
+│   └── thumbnails/              # Video thumbnail images
+│       ├── video1.jpg
+│       └── video2.jpg
+├── src/                         # Source code
+│   ├── app/                     # Next.js App Router
+│   │   ├── favicon.ico
+│   │   ├── globals.css          # Global styles
+│   │   ├── layout.tsx           # Root layout with providers
+│   │   ├── page.tsx             # Homepage
+│   │   └── watch/               # Video watch page
+│   │       └── page.tsx
+│   ├── components/              # Reusable UI components
+│   │   ├── common/              # Common utility components
+│   │   │   ├── ErrorMessage.tsx
+│   │   │   └── LoadingSpinner.tsx
+│   │   ├── layout/              # Layout-specific components
+│   │   │   ├── Header.tsx
+│   │   │   ├── Layout.tsx
+│   │   │   └── Sidebar.tsx
+│   │   ├── ui/                  # Base UI elements
+│   │   │   ├── Avatar.tsx
+│   │   │   ├── Button.tsx
+│   │   │   └── SearchInput.tsx
+│   │   └── video/               # Video-related components
+│   │       ├── CommentsSection.tsx
+│   │       ├── RelatedVideos.tsx
+│   │       ├── VideoCard.tsx
+│   │       ├── VideoGrid.tsx
+│   │       ├── VideoInfo.tsx
+│   │       └── VideoPlayer.tsx
+│   ├── lib/                     # Logic and utilities
+│   │   ├── api/                 # API client
+│   │   │   └── client.ts
+│   │   ├── hooks/               # Custom React hooks
+│   │   │   ├── useVideoData.ts
+│   │   │   └── useVideos.ts
+│   │   ├── providers/           # App-wide providers
+│   │   │   └── QueryProvider.tsx
+│   │   └── utils/               # Utility functions & mock data
+│   │       ├── constants.ts
+│   │       ├── formatters.ts
+│   │       ├── mockComments.ts
+│   │       ├── mockVideoData.ts
+│   │       └── mockVideos.ts
+│   └── types/                   # TypeScript type definitions
+│       ├── api.ts
+│       └── video.ts
+├── README.md
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── package-lock.json
+├── postcss.config.mjs
+├── tailwind.config.js
+└── tsconfig.json
+
 ```
 
 ## 🏃‍♂️ Getting Started
@@ -72,27 +119,24 @@ youtube-clone/
 
 ### Installation
 
-1. **Clone the repository**
+1. **Extract Th Zip file and Change Directory to bff-youtube-clone**
 
    ```bash
-   git clone <your-repo-url>
-   cd youtube-clone
+   cd  bff-youtube-clone
    ```
 
 2. **Install dependencies**
 
    ```bash
    npm install
-   # or
-   yarn install
+
    ```
 
 3. **Start the development server**
 
    ```bash
    npm run dev
-   # or
-   yarn dev
+
    ```
 
 4. **Open your browser**
@@ -128,16 +172,8 @@ npm start
 Create a `.env.local` file for API configuration:
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL= https://youtube-bff.onrender.com
 ```
-
-### Mock Data
-
-The application uses mock data by default. To connect to a real backend:
-
-1. Update the API client in `lib/api/client.ts`
-2. Replace mock data calls with real API endpoints
-3. Configure environment variables
 
 ## 📱 Responsive Design
 
@@ -162,44 +198,5 @@ The application is fully responsive with:
 - **Image Optimization**: Next.js image optimization
 - **Code Splitting**: Automatic code splitting with Next.js
 - **Lazy Loading**: Components and images load as needed
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-```bash
-npm run build
-# Deploy to Vercel
-```
-
-### Other Platforms
-
-The application can be deployed to any platform supporting Node.js:
-
-- Netlify
-- AWS Amplify
-- Railway
-- Heroku
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📝 Notes
-
-- **Mock Data**: Currently using 10 mock videos as requested
-- **Backend Integration**: Ready for backend API integration
-- **Extensibility**: Architecture supports easy feature additions
-- **Performance**: Optimized for production use
-
-## 📄 License
-
-This project is created for educational and demonstration purposes.
-
----
 
 **Built with ❤️ using Next.js, TypeScript, and Tailwind CSS**

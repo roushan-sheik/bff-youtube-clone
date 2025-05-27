@@ -6,7 +6,8 @@ import { mockVideoData } from "../utils/mockVideoData";
 import { mockVideos } from "../utils/mockVideos";
 
 // API Base Configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || "https://youtube-bff.onrender.com";
 
 class ApiClient {
   private baseUrl: string;
@@ -58,8 +59,7 @@ class ApiClient {
 
   async getVideos(): Promise<ApiResponse<Video[]>> {
     try {
-      // In production, use: return await this.request<ApiResponse<Video[]>>('/getvideos');
-      return await this.mockRequest(mockVideos);
+      return await this.request<ApiResponse<Video[]>>("/getvideos");
     } catch (error) {
       // Fallback to mock data on error
       console.warn("API call failed, using mock data:", error);
@@ -69,8 +69,10 @@ class ApiClient {
 
   async getVideoData(videoId?: string): Promise<ApiResponse<VideoData>> {
     try {
-      // In production, use: return await this.request<ApiResponse<VideoData>>(`/getvideodata${videoId ? `?id=${videoId}` : ''}`);
-      return await this.mockRequest(mockVideoData);
+      return await this.request<ApiResponse<VideoData>>(
+        `/getvideodata${videoId ? `?id=${videoId}` : ""}`
+      );
+      // return await this.mockRequest(mockVideoData);
     } catch (error) {
       // Fallback to mock data on error
       console.warn("API call failed, using mock data:", error);
@@ -80,7 +82,7 @@ class ApiClient {
 
   async getVideoComments(videoId: string): Promise<ApiResponse<Comment[]>> {
     try {
-      // In production, use: return await this.request<ApiResponse<Comment[]>>(`/getcomments?videoId=${videoId}`);
+      //  return await this.request<ApiResponse<Comment[]>>(`/getcomments?videoId=${videoId}`);
       return await this.mockRequest(mockComments, 800);
     } catch (error) {
       // Fallback to mock data on error
@@ -91,9 +93,9 @@ class ApiClient {
 
   async getRelatedVideos(videoId: string): Promise<ApiResponse<Video[]>> {
     try {
-      // In production, use: return await this.request<ApiResponse<Video[]>>(`/getrelated?videoId=${videoId}`);
-      const related = mockVideos.slice(0, 10);
-      return await this.mockRequest(related, 600);
+      return await this.request<ApiResponse<Video[]>>("/getvideos");
+      // const related = mockVideos.slice(0, 10);
+      // return await this.mockRequest(related, 600);
     } catch (error) {
       // Fallback to mock data on error
       console.warn("API call failed, using mock data:", error);
