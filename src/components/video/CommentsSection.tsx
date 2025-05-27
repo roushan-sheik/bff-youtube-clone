@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { ThumbsUp, ThumbsDown, Reply, MoreVertical } from "lucide-react";
 import { Comment } from "../../types/video";
-import Avatar from "../ui/Avatar";
-import Button from "../ui/Button";
+import { Avatar } from "../ui/Avatar";
+import { Button } from "../ui/Button";
 
 interface CommentItemProps {
   comment: Comment;

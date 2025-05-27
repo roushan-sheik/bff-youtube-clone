@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Video } from "../../types/video";
-import Avatar from "../ui/Avatar";
+import { Avatar } from "../ui/Avatar";
 
 interface VideoCardProps {
   video: Video;

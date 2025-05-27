@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Avatar } from "@/components/ui/Avatar";
 
 interface HeaderProps {
-  onMenuClick: () => void;
+  onMenuClick?: () => void;
 }
 
 export function Header({ onMenuClick }: HeaderProps) {

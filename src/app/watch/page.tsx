@@ -6,13 +6,16 @@ import VideoPlayer from "../../components/video/VideoPlayer";
 import VideoInfo from "../../components/video/VideoInfo";
 import CommentsSection from "../../components/video/CommentsSection";
 import RelatedVideos from "../../components/video/RelatedVideos";
-import LoadingSpinner from "../../components/common/LoadingSpinner";
-import ErrorMessage from "../../components/common/ErrorMessage";
+
+import { ErrorMessage } from "@/components/common/ErrorMessage";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
 import {
-  useVideoData,
-  useVideoComments,
   useRelatedVideos,
-} from "../../lib/hooks/useVideos";
+  useVideoComments,
+  useVideoData,
+} from "@/lib/hooks/useVideoData";
+
+import { Header } from "@/components/layout/Header";
 
 function WatchPageContent() {
   const searchParams = useSearchParams();
@@ -60,52 +63,57 @@ function WatchPageContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Video Player */}
-            <div className="w-full">
-              <VideoPlayer
-                videoUrl={mockVideo.videoUrl}
-                thumbnail={mockVideo.thumbnail}
-                title={mockVideo.title}
-              />
-            </div>
+    <div>
+      <div className="mb-[59px]">
+        <Header />
+      </div>
+      <div className="min-h-screen bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Main Content */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Video Player */}
+              <div className="w-full">
+                <VideoPlayer
+                  videoUrl={mockVideo.videoUrl}
+                  thumbnail={mockVideo.thumbnail}
+                  title={mockVideo.title}
+                />
+              </div>
 
-            {/* Video Info */}
-            <VideoInfo
-              videoData={
-                videoData || {
-                  title: "Loading...",
-                  views: 0,
-                  likes: 0,
-                  uploaded: "",
-                  channel: "Loading...",
-                  subscribers: 0,
+              {/* Video Info */}
+              <VideoInfo
+                videoData={
+                  videoData || {
+                    title: "Loading...",
+                    views: 0,
+                    likes: 0,
+                    uploaded: "",
+                    channel: "Loading...",
+                    subscribers: 0,
+                  }
                 }
-              }
-              isLoading={isVideoLoading}
-            />
-
-            {/* Comments Section */}
-            <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
-              <CommentsSection
-                comments={comments}
-                isLoading={isCommentsLoading}
-                commentsCount={comments.length}
+                isLoading={isVideoLoading}
               />
+
+              {/* Comments Section */}
+              <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+                <CommentsSection
+                  comments={comments}
+                  isLoading={isCommentsLoading}
+                  commentsCount={comments.length}
+                />
+              </div>
             </div>
-          </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-6">
-              <RelatedVideos
-                videos={relatedVideos}
-                isLoading={isRelatedLoading}
-              />
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-6">
+                <RelatedVideos
+                  videos={relatedVideos}
+                  isLoading={isRelatedLoading}
+                />
+              </div>
             </div>
           </div>
         </div>
