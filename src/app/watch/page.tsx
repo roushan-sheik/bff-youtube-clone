@@ -49,9 +49,10 @@ function WatchPageContent() {
     );
   }
 
-  const videoData = videoResponse;
+  // Extract actual data from the API response
+  const videoData = videoResponse || videoResponse;
   const comments = commentsResponse?.data || [];
-  const relatedVideos = relatedResponse || [];
+  const relatedVideos = relatedResponse?.data || relatedResponse || [];
 
   // Mock video for player since we don't have real video URLs
   const mockVideo = {
