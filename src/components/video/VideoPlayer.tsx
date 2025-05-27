@@ -16,11 +16,7 @@ interface VideoPlayerProps {
   title: string;
 }
 
-export default function VideoPlayer({
-  videoUrl,
-  thumbnail,
-  title,
-}: VideoPlayerProps) {
+export default function VideoPlayer({ videoUrl, thumbnail }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(1);

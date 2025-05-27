@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Video, VideoData, Comment, ApiResponse } from "@/types/video";
 
 import { mockComments } from "../utils/mockComments";
