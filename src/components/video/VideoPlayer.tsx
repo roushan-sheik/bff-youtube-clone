@@ -16,7 +16,7 @@ interface VideoPlayerProps {
   title: string;
 }
 
-export default function VideoPlayer({ videoUrl, thumbnail }: VideoPlayerProps) {
+export default function VideoPlayer({ thumbnail }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(1);
@@ -121,7 +121,9 @@ export default function VideoPlayer({ videoUrl, thumbnail }: VideoPlayerProps) {
         className="w-full h-full object-contain cursor-pointer"
         poster={thumbnail}
         onClick={togglePlay}
-        src={videoUrl}
+        src={
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        }
       />
 
       {/* Play/Pause Overlay */}
