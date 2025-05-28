@@ -16,6 +16,19 @@ import {
 } from "@/lib/hooks/useVideoData";
 
 import { Header } from "@/components/layout/Header";
+import { VideoData, Comment, Video, ApiResponse } from "@/types/video";
+
+// Type guard helper function
+function isApiResponse<T>(
+  response: T | ApiResponse<T>
+): response is ApiResponse<T> {
+  return (
+    response !== null &&
+    typeof response === "object" &&
+    "data" in response &&
+    "success" in response
+  );
+}
 
 function WatchPageContent() {
   const searchParams = useSearchParams();
@@ -49,10 +62,24 @@ function WatchPageContent() {
     );
   }
 
-  // Extract actual data from the API response
-  const videoData = videoResponse || videoResponse;
-  const comments = commentsResponse?.data || [];
-  const relatedVideos = relatedResponse?.data || relatedResponse || [];
+  // Extract actual data from the API response using type guards
+  const videoData: VideoData | null = videoResponse
+    ? isApiResponse(videoResponse)
+      ? videoResponse.data
+      : videoResponse
+    : null;
+
+  const comments: Comment[] = commentsResponse
+    ? isApiResponse(commentsResponse)
+      ? commentsResponse.data
+      : commentsResponse
+    : [];
+
+  const relatedVideos: Video[] = relatedResponse
+    ? isApiResponse(relatedResponse)
+      ? relatedResponse.data
+      : relatedResponse
+    : [];
 
   // Mock video for player since we don't have real video URLs
   const mockVideo = {

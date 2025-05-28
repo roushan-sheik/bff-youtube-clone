@@ -32,7 +32,8 @@ export interface Comment {
   replies?: Comment[];
 }
 
-export interface ApiResponse extends VideoData {
+export interface ApiResponse<T> {
+  data: T;
   success: boolean;
   message?: string;
 }
