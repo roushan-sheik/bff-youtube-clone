@@ -59,7 +59,9 @@ class ApiClient {
 
   async getVideos(): Promise<ApiResponse<Video[]>> {
     try {
-      return await this.request<ApiResponse<Video[]>>("/getvideos");
+      const resData = await this.request<ApiResponse<Video[]>>("/getvideos");
+      console.log({ resData });
+      return resData;
     } catch (error) {
       // Fallback to mock data on error
       console.warn("API call failed, using mock data:", error);
@@ -72,7 +74,6 @@ class ApiClient {
       return await this.request<ApiResponse<VideoData>>(
         `/getvideodata${videoId ? `?id=${videoId}` : ""}`
       );
-      // return await this.mockRequest(mockVideoData);
     } catch (error) {
       // Fallback to mock data on error
       console.warn("API call failed, using mock data:", error);
@@ -94,8 +95,6 @@ class ApiClient {
   async getRelatedVideos(videoId: string): Promise<ApiResponse<Video[]>> {
     try {
       return await this.request<ApiResponse<Video[]>>("/getvideos");
-      // const related = mockVideos.slice(0, 10);
-      // return await this.mockRequest(related, 600);
     } catch (error) {
       // Fallback to mock data on error
       console.warn("API call failed, using mock data:", error);
